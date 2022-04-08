@@ -1,0 +1,105 @@
+@media only screen and (min-width: 1366px) {
+  .btn-flat {
+    margin-left: 20px !important;
+    font-size: 13px !important;
+  }
+  .ad1 {
+    width: 100% !important;
+  }
+  .carousel {
+    width: 100% !important;
+    background-color: black;
+  }
+  .Dman {
+    width: 14% !important;
+    top: 10px !important;
+    left: 10px !important;
+  }
+  .inline-icon-account {
+    vertical-align: bottom;
+    font-size: 25px !important;
+  }
+  .contact-info {
+    font-size: 20px !important;
+  }
+
+  ul.logo-list {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    width: 1500px !important;
+    overflow-x: auto !important;
+  }
+  .products {
+    width: 400px !important;
+  }
+  ul.logo-list li {
+    flex: 0 0 auto !important;
+    width: 150px !important;
+    height: 150px !important;
+    background-color: white;
+  }
+
+  section#cart ul {
+    height: 200px !important;
+    overflow: auto !important;
+    background-color: slategray !important;
+  }
+
+  img {
+    pointer-events: none !important;
+  }
+  li[data-id] img {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 1366px) and (min-width: 1280px) {
+  .Dman {
+    width: 14% !important;
+    top: 10px !important;
+    left: 10px !important;
+  }
+  .btn-flat {
+    margin-left: 20px !important;
+    font-size: 10px !important;
+  }
+  .ad1 {
+    width: 100% !important;
+  }
+
+  .carousel {
+    width: 100% !important;
+    background-color: black;
+  }
+  ul.logo-list {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    width: 1000px !important;
+  }
+  .products {
+    width: 400px !important;
+  }
+  ul.logo-list li {
+    flex: 0 0 auto !important;
+    width: 150px !important;
+    height: 150px !important;
+    background-color: white;
+  }
+
+  section#cart ul {
+    height: 150px !important;
+    overflow: auto !important;
+    background-color: slategray !important;
+  }
+
+  img {
+    pointer-events: none !important;
+  }
+  li[data-id] img {
+    display: none !important;
+  }
+}
