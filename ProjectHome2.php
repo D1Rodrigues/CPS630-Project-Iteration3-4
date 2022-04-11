@@ -32,13 +32,13 @@
              </li>
              <!-- Reviews -->
              <li> 
-                <a class="btn-flat black-text" >Reviews</a>
+                <a class="btn-flat black-text" href = "#!Review"  >Reviews</a>
              </li>
              <li> 
             
              
         </ul>
-            <a href="P_home.php" class="brand-logo center"> <img src = "Pictures/D_Logo(1).png" class = "Dman" ></a>
+            <a href="#!Home" class="brand-logo center"> <img src = "Pictures/D_Logo(1).png" class = "Dman" ></a>
        
         <ul id = "nav-mobile" class="right hide-on-med-and-down"> 
             <li> 
@@ -123,6 +123,7 @@
     <br>
 <!--Main body -->
 <section>
+    <!-- Home Page --> 
     <script type ="text/ng-template" id="Home.php">
         <div class = "container"> 
         <!-- Carousel of Images -->
@@ -145,6 +146,7 @@
         </form> 
     </script>  
 
+    <!--About Us Page --> 
     <script type ="text/ng-template" id="aboutus.php"> 
         <section class ="container"> 
         <h3> About our staff</h3> 
@@ -179,6 +181,7 @@
         </section>
     </script> 
 
+    <!-- Contact us Page--> 
     <script type ="text/ng-template" id="Contact.php"> 
         <div class = "container">
         <h4> Contact the Team! </h4>
@@ -245,6 +248,27 @@
         </div>
     </script>
 
+    <!--Reviews Page --> 
+    <script type = "text/ng-template" id="review.php"> 
+        <div class ="container">
+            <h4> Leave a Review!</h4> 
+            <form method="post" action=""> 
+                <div class  ="row">
+                <div class ="input-field col s8"> 
+                    <input placeholder = "Product Name" id="ReviewPname" name ="ReviewPname" type="Text"> 
+                    <label for="ReviewPname"> Product Name  </label>
+                </div>
+                </div> 
+                <div class  ="row">
+                <div class ="input-field col s8"> 
+                    <input placeholder = "Review" id="ReviewR" name ="ReviewR" type="Text"> 
+                </div>
+                </div> 
+            </form> 
+        </div> 
+    </script> 
+
+    <!-- Sign Up Page --> 
     <script type = "text/ng-template" id = "Sign-up.php"> 
         <section class = "container"> 
                 <h4 class = "center"> Sign-up Registration </h4>
@@ -302,6 +326,7 @@
 
     </script> 
 
+    <!--DB Maintance --> 
     <script type = "text/ng-template" id = "Insert-Page.php"> 
         <h4 class ="center"> Insert</h4>
         <form method ="post" action = "dropdown-insert.php"> 
@@ -393,7 +418,9 @@
         </div>
         </form> 
     </script>
-    
+
+
+    <!-- Shopping Cart --> 
     <script type ="text/ng-template" id="Cart.php">
                 <div id="page">	
 
@@ -548,7 +575,7 @@
         echo $_SESSION['order_id'];
         echo $_SESSION['user_id'];
     ?>
-    <<?php 
+    <?php 
         error_reporting (E_ALL ^ E_NOTICE); 
         $insertStatus = $_SESSION['InsertStatus'];
         if($insertStatus == true){ 
@@ -560,9 +587,6 @@
         if( $s == true){
             $result = $_SESSION['selectResults']; 
             echo serialize($result);
-        }
-         else{ 
-            echo 'Could not find user';
         }
     ?>
 </section> 
@@ -787,6 +811,10 @@
         templateUrl:"Sign-up.php",
         controller: "SUPCtrl"
     })
+    .when("/Review",{
+        templateUrl:"review.php", 
+        controlelr:"ReviewCtrl"
+    })
     .when("/Insert",{
         templateUrl:"Insert-Page.php",
         controller: "InCtrl"
@@ -807,6 +835,7 @@
         templateUrl:"Cart.php",
         controller: "CartCtrl"
     })
+    .otherwise({redirectTo:"/"});
     
   });
 </script> 
