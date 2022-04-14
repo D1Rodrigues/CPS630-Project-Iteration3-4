@@ -62,7 +62,7 @@ session_start();
                         <td></td>
                         <td></td>
                         <td></td>
-                        <td><a href="shipping.php"><button>Check Out</button></a></td>
+                        <td><a href="ProjectHome2.php#!/Shipping"><button>Check Out</button></a></td>
                 
                     </tr>
 

@@ -44,21 +44,26 @@
       </div>
 
       
-      <form class="form" autocomplete="off" novalidate>
+      <form class="form" action ="checkout.php" method = "post" autocomplete="off" novalidate>
+        <fieldset>
+          <label for="email">Email</label>
+          <input
+            type="text"
+            name="email">
+        </fieldset>
+
         <fieldset>
           <label for="card-number">Card Number</label>
           <input
-      type="text"
-      name="creditCard"
-      ng-model="ccinfo.number"
-      required
-      data-credit-card-type
-      data-ng-pattern="/^[0-9]+$/"
-      data-ng-minlength="15"
-      maxlength="19">{{ccinfo.type}}
+            type="text"
+            name="creditCard"
+            ng-model="ccinfo.number"
+            required
+            data-credit-card-type
+            data-ng-pattern="/^[0-9]+$/"
+            data-ng-minlength="15"
+            maxlength="19">{{ccinfo.type}}
         </fieldset>
-
-       
 
         <fieldset>
           <label for="card-holder">Card holder</label>
@@ -99,7 +104,7 @@
 
         <fieldset class="fieldset-ccv">
           <label for="card-ccv">CCV</label>
-          <input ng-model="ccinfo.ccv"  required type="text" id="card-ccv" maxlength="3" />
+          <input ng-model="ccinfo.ccv"  required type="text" id="card-ccv" required name="card-ccv" maxlength="3" />
         </fieldset>
 
         <button ng-click="paymentForm.submitAttempt=true;save(ccinfo)"  class="btn"><i class="fa fa-lock"></i> submit</button>
