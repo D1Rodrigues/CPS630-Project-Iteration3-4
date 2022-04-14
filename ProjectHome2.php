@@ -15,7 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
         <title> DND FASHION</title>
     </head>
-<body ng-app = "It3&4"> 
+<body ng-app = "It3&4" onload="getBrowserName()"> 
 <nav class = "nav-wrapper white"> 
         <ul id = "nav-mobile" class="left hide-on-med-and-down">
             <!-- Home -->
@@ -32,13 +32,13 @@
              </li>
              <!-- Reviews -->
              <li> 
-                <a class="btn-flat black-text" >Reviews</a>
+                <a class="btn-flat black-text" href = "#!Review"  >Reviews</a>
              </li>
              <li> 
             
              
         </ul>
-            <a href="P_home.php" class="brand-logo center"> <img src = "Pictures/D_Logo(1).png" class = "Dman" ></a>
+            <a href="#!Home" class="brand-logo center"> <img src = "Pictures/D_Logo(1).png" class = "Dman" ></a>
        
         <ul id = "nav-mobile" class="right hide-on-med-and-down"> 
             <li> 
@@ -123,6 +123,7 @@
     <br>
 <!--Main body -->
 <section>
+    <!-- Home Page --> 
     <script type ="text/ng-template" id="Home.php">
         <div class = "container"> 
         <!-- Carousel of Images -->
@@ -145,6 +146,7 @@
         </form> 
     </script>  
 
+    <!--About Us Page --> 
     <script type ="text/ng-template" id="aboutus.php"> 
         <section class ="container"> 
         <h3> About our staff</h3> 
@@ -179,6 +181,7 @@
         </section>
     </script> 
 
+    <!-- Contact us Page--> 
     <script type ="text/ng-template" id="Contact.php"> 
         <div class = "container">
         <h4> Contact the Team! </h4>
@@ -245,6 +248,46 @@
         </div>
     </script>
 
+    <!--Reviews Page --> 
+    <script type = "text/ng-template" id="review.php"> 
+        <div class ="container">
+            <h4> Leave a Review!</h4> 
+            <form method="post" action="InsertReview.php"> 
+                <div class  ="row">
+                <div class ="input-field col s8"> 
+                    <input placeholder = "Product Name" id="ReviewPname" name ="ReviewPname" type="Text"> 
+                    <label for="ReviewPname"> Product Name  </label>
+                    <div class ="row"> 
+                </div>
+                </div>
+                </div> 
+                <div class  ="row">
+                <div class ="input-field col s8"> 
+                    <input placeholder = "Review" id="ReviewR" name ="ReviewR" type="Text"> 
+                </div>
+                </div> 
+                <button class = "btn waves-effect waves-light col s4 offset-s4 black" type="submit" name="action"> Add Review</button>
+            </form>
+            <br> 
+
+            <form method = "post" action="deleteReview.php">
+                <div class = "row"> 
+                    <button class = "btn waves-effect waves-light col s2 black" type="submit" name="action"> Delete Review</button>
+                    <div class ="input-field col s2 offset-s1"> 
+                        <input placeholder = "Review Number" id="ReviewNumber" name ="ReviewNumber" type="Text"> 
+                    </div>
+                </div> 
+            </form> 
+
+            <form method = "post" action="showReview.php">
+                <div class = "row"> 
+                    <button class = "btn waves-effect waves-light col s2 black" type="submit" name="action"> Show Review</button>
+                </div> 
+            </form> 
+        </div> 
+    </script> 
+
+    <!-- Sign Up Page --> 
     <script type = "text/ng-template" id = "Sign-up.php"> 
         <section class = "container"> 
                 <h4 class = "center"> Sign-up Registration </h4>
@@ -302,6 +345,7 @@
 
     </script> 
 
+    <!--DB Maintance --> 
     <script type = "text/ng-template" id = "Insert-Page.php"> 
         <h4 class ="center"> Insert</h4>
         <form method ="post" action = "dropdown-insert.php"> 
@@ -393,7 +437,9 @@
         </div>
         </form> 
     </script>
-    
+
+
+    <!-- Shopping Cart --> 
     <script type ="text/ng-template" id="Cart.php">
                 <div id="page">	
 
@@ -548,7 +594,7 @@
         echo $_SESSION['order_id'];
         echo $_SESSION['user_id'];
     ?>
-    <<?php 
+    <?php 
         error_reporting (E_ALL ^ E_NOTICE); 
         $insertStatus = $_SESSION['InsertStatus'];
         if($insertStatus == true){ 
@@ -561,10 +607,9 @@
             $result = $_SESSION['selectResults']; 
             echo serialize($result);
         }
-         else{ 
-            echo 'Could not find user';
-        }
     ?>
+
+
 </section> 
 
 <div ng-view> </div> 
@@ -584,6 +629,32 @@
         $('select').formSelect();
         });
         $('.DD').dropdown();
+
+            function getBrowserName()
+            {
+                var agent = navigator.userAgent;
+                //document.write(agent + "<br><br>");
+                if(agent.includes('Chrome'))
+                {
+                    alert(agent + " Browser: Chrome");
+                }
+                else if (agent.includes('Firefox'))
+                { 
+                    alert(agent + " Browser: Firefox");
+                }
+                else if (agent.includes('Trident'))
+                {
+                    alert(agent + " Browser: Internet Explorer");
+                }
+                else if(agent.includes('Safari'))
+                {
+                    alert(agent + " Browser: Safari");
+                }
+                else  
+                {
+                    alert(agent + " Browser: unknown");
+                }
+            }
 </script>
 <script>
 
@@ -787,6 +858,10 @@
         templateUrl:"Sign-up.php",
         controller: "SUPCtrl"
     })
+    .when("/Review",{
+        templateUrl:"review.php", 
+        controlelr:"ReviewCtrl"
+    })
     .when("/Insert",{
         templateUrl:"Insert-Page.php",
         controller: "InCtrl"
@@ -807,6 +882,7 @@
         templateUrl:"Cart.php",
         controller: "CartCtrl"
     })
+    .otherwise({redirectTo:"/"});
     
   });
 </script> 
