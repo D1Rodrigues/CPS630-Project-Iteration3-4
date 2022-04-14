@@ -31,7 +31,7 @@
         {
             $_SESSION['email'] = $email;
             $_SESSION['success'] = "You are signed in!";
-            header("Location: ProjectHome2.php#!/Home");
+            header("Location: P_Home.php");
         }
         //...if not, 
         else 
