@@ -252,17 +252,36 @@
     <script type = "text/ng-template" id="review.php"> 
         <div class ="container">
             <h4> Leave a Review!</h4> 
-            <form method="post" action=""> 
+            <form method="post" action="InsertReview.php"> 
                 <div class  ="row">
                 <div class ="input-field col s8"> 
                     <input placeholder = "Product Name" id="ReviewPname" name ="ReviewPname" type="Text"> 
                     <label for="ReviewPname"> Product Name  </label>
+                    <div class ="row"> 
+                </div>
                 </div>
                 </div> 
                 <div class  ="row">
                 <div class ="input-field col s8"> 
                     <input placeholder = "Review" id="ReviewR" name ="ReviewR" type="Text"> 
                 </div>
+                </div> 
+                <button class = "btn waves-effect waves-light col s4 offset-s4 black" type="submit" name="action"> Add Review</button>
+            </form>
+            <br> 
+
+            <form method = "post" action="deleteReview.php">
+                <div class = "row"> 
+                    <button class = "btn waves-effect waves-light col s2 black" type="submit" name="action"> Delete Review</button>
+                    <div class ="input-field col s2 offset-s1"> 
+                        <input placeholder = "Review Number" id="ReviewNumber" name ="ReviewNumber" type="Text"> 
+                    </div>
+                </div> 
+            </form> 
+
+            <form method = "post" action="showReview.php">
+                <div class = "row"> 
+                    <button class = "btn waves-effect waves-light col s2 black" type="submit" name="action"> Show Review</button>
                 </div> 
             </form> 
         </div> 
