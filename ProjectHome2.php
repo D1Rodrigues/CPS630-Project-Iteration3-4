@@ -15,7 +15,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
         <title> DND FASHION</title>
     </head>
-<body ng-app = "It3&4"> 
+<body ng-app = "It3&4" onload="getBrowserName()"> 
 <nav class = "nav-wrapper white"> 
         <ul id = "nav-mobile" class="left hide-on-med-and-down">
             <!-- Home -->
@@ -608,6 +608,8 @@
             echo serialize($result);
         }
     ?>
+
+
 </section> 
 
 <div ng-view> </div> 
@@ -627,6 +629,32 @@
         $('select').formSelect();
         });
         $('.DD').dropdown();
+
+            function getBrowserName()
+            {
+                var agent = navigator.userAgent;
+                //document.write(agent + "<br><br>");
+                if(agent.includes('Chrome'))
+                {
+                    alert(agent + " Browser: Chrome");
+                }
+                else if (agent.includes('Firefox'))
+                { 
+                    alert(agent + " Browser: Firefox");
+                }
+                else if (agent.includes('Trident'))
+                {
+                    alert(agent + " Browser: Internet Explorer");
+                }
+                else if(agent.includes('Safari'))
+                {
+                    alert(agent + " Browser: Safari");
+                }
+                else  
+                {
+                    alert(agent + " Browser: unknown");
+                }
+            }
 </script>
 <script>
 
