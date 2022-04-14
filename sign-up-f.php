@@ -63,7 +63,7 @@
         {
             $_SESSION['username'] = $username;
             $_SESSION['success'] = "You are now logged in";
-            header("Location: P_Home.php");
+            header("Location: ProjectHome2.php#!/Home");
         }	
     }
     else //if there any errors, tell user to try start again
